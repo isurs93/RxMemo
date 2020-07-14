@@ -1,5 +1,5 @@
 //
-//  MemoListViewViewController.swift
+//  MemoDetailViewViewController.swift
 //  RxMemo
 //
 //  Created by 박성주 on 2020/07/14.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class MemoListViewViewController: UIViewController {
+class MemoDetailViewController: UIViewController, ViewModelBindableType {
 
+    var viewModel: MemoDetailtViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,5 +28,10 @@ class MemoListViewViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func bindViewModel() {
+        
+    }
+
 
 }
