@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		ED92BA0424BDC5CF00899A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED92BA0324BDC5CF00899A60 /* Assets.xcassets */; };
 		ED92BA0724BDC5CF00899A60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED92BA0524BDC5CF00899A60 /* LaunchScreen.storyboard */; };
 		ED92BA1524BDCF8400899A60 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92BA1424BDCF8400899A60 /* Memo.swift */; };
+		ED92BA1724BDD08800899A60 /* MemoStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92BA1624BDD08800899A60 /* MemoStorageType.swift */; };
+		ED92BA3E24BDD4A800899A60 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92BA3D24BDD4A800899A60 /* MemoryStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		ED92BA0624BDC5CF00899A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED92BA0824BDC5CF00899A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED92BA1424BDCF8400899A60 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		ED92BA1624BDD08800899A60 /* MemoStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoStorageType.swift; sourceTree = "<group>"; };
+		ED92BA3D24BDD4A800899A60 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +95,6 @@
 				ED92B9F924BDC5CC00899A60 /* SceneDelegate.swift */,
 				ED92BA0324BDC5CF00899A60 /* Assets.xcassets */,
 				ED92BA0824BDC5CF00899A60 /* Info.plist */,
-				ED92BA0024BDC5CC00899A60 /* RxMemo.xcdatamodeld */,
 			);
 			path = RxMemo;
 			sourceTree = "<group>";
@@ -123,6 +126,9 @@
 		ED92BA1124BDCD5A00899A60 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				ED92BA3C24BDD47F00899A60 /* CoreDataStorage */,
+				ED92BA3B24BDD46F00899A60 /* MemoStorage */,
+				ED92BA1624BDD08800899A60 /* MemoStorageType.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -132,6 +138,22 @@
 			children = (
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		ED92BA3B24BDD46F00899A60 /* MemoStorage */ = {
+			isa = PBXGroup;
+			children = (
+				ED92BA3D24BDD4A800899A60 /* MemoryStorage.swift */,
+			);
+			path = MemoStorage;
+			sourceTree = "<group>";
+		};
+		ED92BA3C24BDD47F00899A60 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				ED92BA0024BDC5CC00899A60 /* RxMemo.xcdatamodeld */,
+			);
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +167,7 @@
 				ED92B9F024BDC5CC00899A60 /* Sources */,
 				ED92B9F124BDC5CC00899A60 /* Frameworks */,
 				ED92B9F224BDC5CC00899A60 /* Resources */,
+				9F94560DC4B9E342DC70378A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +247,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9F94560DC4B9E342DC70378A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxMemo/Pods-RxMemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxMemo/Pods-RxMemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxMemo/Pods-RxMemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -231,7 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED92BA3E24BDD4A800899A60 /* MemoryStorage.swift in Sources */,
 				ED92B9F824BDC5CC00899A60 /* AppDelegate.swift in Sources */,
+				ED92BA1724BDD08800899A60 /* MemoStorageType.swift in Sources */,
 				ED92B9FA24BDC5CC00899A60 /* SceneDelegate.swift in Sources */,
 				ED92BA0224BDC5CC00899A60 /* RxMemo.xcdatamodeld in Sources */,
 				ED92BA1524BDCF8400899A60 /* Memo.swift in Sources */,
@@ -310,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -364,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
