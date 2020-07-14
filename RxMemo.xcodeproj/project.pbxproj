@@ -10,7 +10,6 @@
 		6EFEEA955B1589C2C20248C2 /* Pods_RxMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD29B0DFBC5D423BFF09D5F /* Pods_RxMemo.framework */; };
 		ED92B9F824BDC5CC00899A60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92B9F724BDC5CC00899A60 /* AppDelegate.swift */; };
 		ED92B9FA24BDC5CC00899A60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92B9F924BDC5CC00899A60 /* SceneDelegate.swift */; };
-		ED92B9FC24BDC5CC00899A60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED92B9FB24BDC5CC00899A60 /* ViewController.swift */; };
 		ED92B9FF24BDC5CC00899A60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED92B9FD24BDC5CC00899A60 /* Main.storyboard */; };
 		ED92BA0224BDC5CC00899A60 /* RxMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED92BA0024BDC5CC00899A60 /* RxMemo.xcdatamodeld */; };
 		ED92BA0424BDC5CF00899A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED92BA0324BDC5CF00899A60 /* Assets.xcassets */; };
@@ -24,7 +23,6 @@
 		ED92B9F424BDC5CC00899A60 /* RxMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED92B9F724BDC5CC00899A60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED92B9F924BDC5CC00899A60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ED92B9FB24BDC5CC00899A60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ED92B9FE24BDC5CC00899A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED92BA0124BDC5CC00899A60 /* RxMemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RxMemo.xcdatamodel; sourceTree = "<group>"; };
 		ED92BA0324BDC5CF00899A60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +48,6 @@
 				41D8DF46D6595B0B7198F36F /* Pods-RxMemo.debug.xcconfig */,
 				33ACDB5D256B65DB89752D5F /* Pods-RxMemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,16 +80,55 @@
 		ED92B9F624BDC5CC00899A60 /* RxMemo */ = {
 			isa = PBXGroup;
 			children = (
+				ED92BA1224BDCD7800899A60 /* Scene */,
+				ED92BA1124BDCD5A00899A60 /* Service */,
+				ED92BA1024BDCD4700899A60 /* ViewModel */,
+				ED92BA0F24BDCD3100899A60 /* ViewController */,
+				ED92BA0E24BDCD2000899A60 /* Model */,
 				ED92B9F724BDC5CC00899A60 /* AppDelegate.swift */,
 				ED92B9F924BDC5CC00899A60 /* SceneDelegate.swift */,
-				ED92B9FB24BDC5CC00899A60 /* ViewController.swift */,
-				ED92B9FD24BDC5CC00899A60 /* Main.storyboard */,
 				ED92BA0324BDC5CF00899A60 /* Assets.xcassets */,
-				ED92BA0524BDC5CF00899A60 /* LaunchScreen.storyboard */,
 				ED92BA0824BDC5CF00899A60 /* Info.plist */,
 				ED92BA0024BDC5CC00899A60 /* RxMemo.xcdatamodeld */,
 			);
 			path = RxMemo;
+			sourceTree = "<group>";
+		};
+		ED92BA0E24BDCD2000899A60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED92BA0F24BDCD3100899A60 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED92B9FD24BDC5CC00899A60 /* Main.storyboard */,
+				ED92BA0524BDC5CF00899A60 /* LaunchScreen.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		ED92BA1024BDCD4700899A60 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED92BA1124BDCD5A00899A60 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		ED92BA1224BDCD7800899A60 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +228,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED92B9FC24BDC5CC00899A60 /* ViewController.swift in Sources */,
 				ED92B9F824BDC5CC00899A60 /* AppDelegate.swift in Sources */,
 				ED92B9FA24BDC5CC00899A60 /* SceneDelegate.swift in Sources */,
 				ED92BA0224BDC5CC00899A60 /* RxMemo.xcdatamodeld in Sources */,
