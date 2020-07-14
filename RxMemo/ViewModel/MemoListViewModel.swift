@@ -11,7 +11,6 @@ import Foundation
 // 메모 목록 화면 모델
 class MemoListViewModel{
     
-    
-    
+
 }
 
