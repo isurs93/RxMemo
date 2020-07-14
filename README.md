@@ -1,3 +1,4 @@
 # RxMemo
 RxSwift Memo App
-RxSwift를 이용한 메모 앱 만들기
+CocoaPods,RxSwift를 이용한 
+MVVM 패턴의 메모 앱 만들기
