@@ -10,6 +10,13 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// DetailView 부분 작업하면서 추가함
+extension UIViewController {
+    var scenecViewController: UIViewController {
+        return self.children.first ?? self
+    }
+}
+
 class SceneCoordinator: SceneCoordinatorType {
     private let bag = DisposeBag()
     
@@ -30,24 +37,34 @@ class SceneCoordinator: SceneCoordinatorType {
         
         switch style {
         case .root:
-            currentVC = target
+            currentVC = target.scenecViewController
             window.rootViewController = target
+            subject.onCompleted()
             
         case .push:
+            print(currentVC)
             guard let nav = currentVC.navigationController else {
                 subject.onError(TransitionError.navigationControllerMissing)
                 break
             }
             
+            // 기본 네비게이션 버튼을 이용하여 DetailView 화면 전환을 위해 추가
+            nav.rx.willShow
+                .subscribe(onNext: { [unowned self] evt in
+                    self.currentVC = evt.viewController.scenecViewController
+                })
+                .disposed(by: bag)
+            //
+            
             nav.pushViewController(target, animated: animated)
-            currentVC = target
+            currentVC = target.scenecViewController
             subject.onCompleted()
             
         case .modal:
             currentVC.present(target, animated: animated) {
                 subject.onCompleted()
             }
-            currentVC = target
+            currentVC = target.scenecViewController
         }
         
         return subject.ignoreElements()
@@ -59,7 +76,7 @@ class SceneCoordinator: SceneCoordinatorType {
         return Completable.create { [unowned self] completable in
             if let presentingVC = self.currentVC.presentingViewController {
                 self.currentVC.dismiss(animated: animated) {
-                    self.currentVC = presentingVC
+                    self.currentVC = presentingVC.scenecViewController
                     completable(.completed)
                 }
             }

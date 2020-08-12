@@ -19,5 +19,7 @@ class CommonViewModel: NSObject {
         self.title = Observable.just(title).asDriver(onErrorJustReturn: "")
         self.sceneCoordinator = sceneCoordinator
         self.storage = storage
+        
+        print(title, "\(sceneCoordinator)")
     }
 }

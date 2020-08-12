@@ -17,20 +17,22 @@ class MemoryStorage: MemoStorageType {
         Memo(content: "Hello, RxSwift", insertDate: Date().addingTimeInterval(-10)),
         Memo(content: "으아잇차", insertDate: Date().addingTimeInterval(-20))
     ]
+    
+    private lazy var sectionModel = MemoSectionModel(model: 0, items: list)
 
     // 배열은 Observable로 표시 Observable로 하면 액션을 취해야 함
-    private lazy var store = BehaviorSubject<[Memo]>(value: list)
+    private lazy var store = BehaviorSubject<[MemoSectionModel]>(value: [sectionModel])
     
     @discardableResult
     func createMemo(content: String) -> Observable<Memo> {
         let memo = Memo(content: content)
-        list.insert(memo, at: 0)
-        store.onNext(list)
+        sectionModel.items.insert(memo, at: 0)
+        store.onNext([sectionModel])
         return Observable.just(memo)
     }
     
     @discardableResult
-    func memoList() -> Observable<[Memo]> {
+    func memoList() -> Observable<[MemoSectionModel]> {
         return store
     }
     
@@ -38,19 +40,19 @@ class MemoryStorage: MemoStorageType {
     func update(memo: Memo, content: String) -> Observable<Memo> {
         let updated = Memo(original: memo, updatedContent: content)
         
-        if let index = list.firstIndex(where: { $0 == memo}) {
+        if let index = sectionModel.items.firstIndex(where: { $0 == memo}) {
             list.remove(at: index)
             list.insert(updated, at: index)
         }
-        store.onNext(list)
+        store.onNext([sectionModel])
         return Observable.just(updated)
     }
     
     @discardableResult
     func delete(memo: Memo) -> Observable<Memo> {
-        if let index = list.firstIndex(where: {$0 == memo}) {
+        if let index = sectionModel.items.firstIndex(where: {$0 == memo}) {
             list.remove(at: index)
-            store.onNext(list)
+            store.onNext([sectionModel])
         }
         return Observable.just(memo)
     }

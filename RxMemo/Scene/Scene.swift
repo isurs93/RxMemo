@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 enum Scene {
     case list(MemoListViewModel)
