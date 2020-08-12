@@ -21,7 +21,7 @@ class SceneCoordinator: SceneCoordinatorType {
         currentVC = window.rootViewController!
     }
     
-    
+    // PublishSubject를 이용한 방식
     @discardableResult
     func transition(to scene: Scene, using style: TransitionStyle, animated: Bool) -> Completable {
         let subject = PublishSubject<Void>()
@@ -53,6 +53,7 @@ class SceneCoordinator: SceneCoordinatorType {
         return subject.ignoreElements()
     }
     
+    // Completable을 직접 생성하여 사용하는 방식
     @discardableResult
     func close(animated: Bool) -> Completable {
         return Completable.create { [unowned self] completable in

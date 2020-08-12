@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 // 메모 목록 화면 모델
-class MemoListViewModel{
-    
-
+class MemoListViewModel: CommonViewModel{
+    var memoList: Observable<[Memo]> {
+        return storage.memoList()
+    }
 }
 
