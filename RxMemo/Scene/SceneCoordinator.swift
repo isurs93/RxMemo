@@ -77,6 +77,4 @@ class SceneCoordinator: SceneCoordinatorType {
             return Disposables.create()
         }
     }
-    
-    
 }
