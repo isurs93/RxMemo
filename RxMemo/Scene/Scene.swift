@@ -52,7 +52,7 @@ extension Scene {
                     fatalError()
             }
             composeVC.bind(viewModel: viewModel)
-            return composeVC
+            return nav
         }
     }
 }

@@ -22,11 +22,12 @@ class MemoComposeViewController: UIViewController, ViewModelBindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("viewDidLoad")
         // Do any additional setup after loading the view.
     }
 
     func bindViewModel() {
+        print("bindViewModel")
         viewModel.title
             .drive(contentTextView.rx.text)
             .disposed(by: rx.disposeBag)
@@ -46,12 +47,14 @@ class MemoComposeViewController: UIViewController, ViewModelBindableType {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("viewWillAppear")
         
         contentTextView.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        print("viewWillDisappear")
         
         if contentTextView.isFirstResponder {
             contentTextView.resignFirstResponder()
